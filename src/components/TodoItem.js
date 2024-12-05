@@ -1,5 +1,5 @@
 import React from 'react';
-import './TodoItem.css';
+import '../styles/TodoItem.css';
 
 function TodoItem({ todo, updateTodo, deleteTodo, toggleComplete, toggleEditing, isDragging }) {
 

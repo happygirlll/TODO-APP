@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoItem from './TodoItem';
-import './TodoList.css';
+import '../styles/TodoList.css';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 
 function TodoList({ todos, setTodos, updateTodo, deleteTodo, toggleComplete, toggleEditing }) {
@@ -33,7 +33,7 @@ function TodoList({ todos, setTodos, updateTodo, deleteTodo, toggleComplete, tog
                                             deleteTodo={deleteTodo}
                                             toggleComplete={toggleComplete}
                                             toggleEditing={toggleEditing}
-                                            isDragging={snapshot.isDragging} // 드래그 상태 전달
+                                            isDragging={snapshot.isDragging} 
                                         />
                                     </div>
                                 )}
