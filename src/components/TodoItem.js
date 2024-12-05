@@ -3,6 +3,18 @@ import '../styles/TodoItem.css';
 
 function TodoItem({ todo, updateTodo, deleteTodo, toggleComplete, toggleEditing, isDragging }) {
 
+    const itemToggleEdit = () => {
+        if (todo.editing) {
+            alert('수정 완료');
+        }
+        toggleEditing(todo.id);
+    };
+
+    const itemDelete = () => {
+        deleteTodo(todo.id);
+        alert('삭제 완료');
+    };
+
     return (
         <div
             className={`todo-item ${todo.completed ? 'completed' : ''} ${todo.editing ? 'editing' : ''} ${isDragging ? 'dragging' : ''
@@ -24,22 +36,11 @@ function TodoItem({ todo, updateTodo, deleteTodo, toggleComplete, toggleEditing,
                 className={todo.editing ? 'editing-input' : ''}
             />
             <button className="edit" 
-                    onClick={() => {
-                        if(todo.editing) {
-                            alert('수정 완료')
-                        };
-                        toggleEditing(todo.id);
-                        }
-                    }>
+                    onClick={()=> itemToggleEdit()}>
                 {todo.editing ? '완료' : '수정'}
-                
-                
             </button>
             <button className="delete" 
-                    onClick={() => {
-                        deleteTodo(todo.id);
-                        alert('삭제 완료');
-                    }}>
+                    onClick={() => itemDelete()}>
                 삭제
             </button>
         </div>
