@@ -23,13 +23,22 @@ function TodoItem({ todo, updateTodo, deleteTodo, toggleComplete, toggleEditing,
                 onBlur={() => toggleEditing(todo.id)}
                 className={todo.editing ? 'editing-input' : ''}
             />
-            <button className="edit" onClick={() => toggleEditing(todo.id)}>
+            <button className="edit" 
+                    onClick={() => {
+                        if(todo.editing) {
+                            alert('수정 완료')
+                        };
+                        toggleEditing(todo.id);
+                        }
+                    }>
                 {todo.editing ? '완료' : '수정'}
+                
+                
             </button>
             <button className="delete" 
                     onClick={() => {
-                        deleteTodo(todo.id)
-                        alert('삭제 완료')
+                        deleteTodo(todo.id);
+                        alert('삭제 완료');
                     }}>
                 삭제
             </button>
