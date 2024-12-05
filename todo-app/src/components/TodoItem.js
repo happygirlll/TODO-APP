@@ -2,6 +2,7 @@ import React from 'react';
 import './TodoItem.css';
 
 function TodoItem({ todo, updateTodo, deleteTodo, toggleComplete, toggleEditing, isDragging }) {
+
     return (
         <div
             className={`todo-item ${todo.completed ? 'completed' : ''} ${todo.editing ? 'editing' : ''} ${isDragging ? 'dragging' : ''
@@ -10,7 +11,9 @@ function TodoItem({ todo, updateTodo, deleteTodo, toggleComplete, toggleEditing,
             <input
                 type="checkbox"
                 checked={todo.completed}
-                onChange={() => toggleComplete(todo.id)}
+                onChange={() => {
+                    toggleComplete(todo.id)
+                }}
             />
             <input
                 type="text"
@@ -23,7 +26,11 @@ function TodoItem({ todo, updateTodo, deleteTodo, toggleComplete, toggleEditing,
             <button className="edit" onClick={() => toggleEditing(todo.id)}>
                 {todo.editing ? '완료' : '수정'}
             </button>
-            <button className="delete" onClick={() => deleteTodo(todo.id)}>
+            <button className="delete" 
+                    onClick={() => {
+                        deleteTodo(todo.id)
+                        alert('삭제 완료')
+                    }}>
                 삭제
             </button>
         </div>

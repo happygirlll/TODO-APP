@@ -48,7 +48,11 @@ function App() {
         toggleComplete={toggleComplete}
         toggleEditing={toggleEditing}
       />
-      <button className="delete-all" onClick={deleteAllTodos}>
+      <button className="delete-all" 
+              onClick={() => {
+                deleteAllTodos();
+                alert('전체 삭제 완료')
+              }}>
         전체 삭제
       </button>
     </div>
